@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>떡만드는 곰돌이 메뉴 견적계산기</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" id="app">
+      <section class="page landing-page is-active" id="landingPage" aria-label="메인">
+        <div class="top-actions">
+          <button class="chip small" id="viewportToggle" type="button">💻 PC</button>
+          <button class="chip small" id="adminOpen" type="button">관리자</button>
+        </div>
+
+        <button class="brand-card" type="button" id="homeLogo" aria-label="메인으로">
+          <span class="brand-kicker">BANGHAK-DONG RICE CAKE SHOP</span>
+          <span class="brand-name">떡만드는 곰돌이</span>
+          <span class="brand-sub">도봉구 방학동 수제 떡공방</span>
+        </button>
+
+        <p class="reservation">행사떡 · 답례떡 · 선물세트는 예약 주문으로 준비됩니다</p>
+        <button class="primary-cta" id="startOrder" type="button">주문하러 가기 ›</button>
+
+        <section class="panel gallery-panel" aria-label="제품 사진">
+          <p class="gallery-copy">
+            📸 떡만드는 곰돌이의 따뜻한 떡 메뉴들
+          </p>
+          <div class="social-row">
+            <a class="social-pill blog" href="https://search.naver.com/search.naver?query=%EB%96%A1%EB%A7%8C%EB%93%9C%EB%8A%94%20%EA%B3%B0%EB%8F%8C%EC%9D%B4%20%EB%B0%A9%ED%95%99%EB%8F%99" target="_blank" rel="noreferrer">
+              <span>N</span>
+              네이버 검색
+            </a>
+            <a class="social-pill insta" href="https://www.instagram.com/explore/search/keyword/?q=%EB%96%A1%EB%A7%8C%EB%93%9C%EB%8A%94%EA%B3%B0%EB%8F%8C%EC%9D%B4" target="_blank" rel="noreferrer">
+              <span>◎</span>
+              인스타 검색
+            </a>
+          </div>
+          <div class="preview-grid" id="previewGrid"></div>
+        </section>
+
+        <section class="panel process-panel" aria-label="주문 진행 순서">
+          <h2>주문은 이렇게 진행돼요</h2>
+          <div class="steps">
+            <article class="step">
+              <span class="step-number">1</span>
+              <h3>메뉴 선택 · 견적</h3>
+              <p>행사에 맞는 떡 구성을 고르고 예상 금액을 확인해요</p>
+            </article>
+            <span class="divider">›</span>
+            <article class="step">
+              <span class="step-number">2</span>
+              <h3>주문서 전송</h3>
+              <p>주문서를 복사해 매장에 상담 요청을 보내요</p>
+            </article>
+            <span class="divider">›</span>
+            <article class="step">
+              <span class="step-number">3</span>
+              <h3>입금 후 예약 확정</h3>
+              <p>입금 확인이 되면 예약이 확정돼요</p>
+            </article>
+          </div>
+          <div class="notice-row">
+            <span>📅 행사 3일 전 예약 권장</span>
+            <span>🏠 방학동 매장 픽업 중심</span>
+          </div>
+          <p class="notice-copy">
+            수량이 많거나 맞춤 문구가 필요한 주문은 여유 있게 문의해 주세요.
+          </p>
+        </section>
+
+        <div class="footer-links">
+          <a href="https://map.naver.com/p/search/%EB%B0%A9%ED%95%99%EB%8F%99%20%EB%96%A1%EB%A7%8C%EB%93%9C%EB%8A%94%20%EA%B3%B0%EB%8F%8C%EC%9D%B4" target="_blank" rel="noreferrer">⌖ 방학동 매장 찾기</a>
+          <a href="https://search.naver.com/search.naver?query=%EB%96%A1%EB%A7%8C%EB%93%9C%EB%8A%94%20%EA%B3%B0%EB%8F%8C%EC%9D%B4%20%EB%B0%A9%ED%95%99%EB%8F%99" target="_blank" rel="noreferrer">💬 상담 정보 검색</a>
+        </div>
+      </section>
+
+      <section class="page order-page" id="orderPage" aria-label="주문하기">
+        <button class="wordmark" type="button" id="logoBack">떡만드는 곰돌이</button>
+        <div class="hairline"></div>
+        <header class="order-header">
+          <button class="back-button" id="backHome" type="button" aria-label="뒤로">‹</button>
+          <h1>주문하기</h1>
+        </header>
+
+        <nav class="category-tabs" id="categoryTabs" aria-label="카테고리"></nav>
+        <nav class="type-tabs" id="typeTabs" aria-label="제품 종류"></nav>
+
+        <section class="menu-head">
+          <div>
+            <strong id="menuTitle">답례떡 · 소포장</strong>
+            <span id="itemCount">· 5개</span>
+          </div>
+          <button class="ghost-button" id="clearSelection" type="button">선택 초기화</button>
+        </section>
+
+        <section class="product-grid" id="productGrid" aria-label="제품 선택"></section>
+
+        <aside class="quote-bar" id="quoteBar" aria-live="polite">
+          <div>
+            <span class="quote-label">선택한 상품</span>
+            <strong id="selectedName">아직 선택 전</strong>
+          </div>
+          <div class="quote-price" id="selectedPrice">₩0</div>
+          <button class="quote-button" id="makeOrder" type="button" disabled>주문서 만들기</button>
+        </aside>
+      </section>
+    </main>
+
+    <dialog class="modal" id="adminModal">
+      <form method="dialog">
+        <button class="modal-close" value="cancel" aria-label="닫기">×</button>
+        <h2>관리자</h2>
+        <label>
+          비밀번호
+          <input type="password" placeholder="관리자 비밀번호" />
+        </label>
+        <p>데모 복제본에서는 로그인 동작만 재현했습니다.</p>
+        <button class="primary-cta modal-button" value="default">확인</button>
+      </form>
+    </dialog>
+
+    <dialog class="modal order-modal" id="orderModal">
+      <form method="dialog">
+        <button class="modal-close" value="cancel" aria-label="닫기">×</button>
+        <h2>주문서 미리보기</h2>
+        <textarea id="orderText" readonly></textarea>
+        <div class="modal-actions">
+          <button class="chip" id="copyOrder" type="button">주문서 복사</button>
+          <a class="chip kakao" href="https://search.naver.com/search.naver?query=%EB%96%A1%EB%A7%8C%EB%93%9C%EB%8A%94%20%EA%B3%B0%EB%8F%8C%EC%9D%B4%20%EB%B0%A9%ED%95%99%EB%8F%99" target="_blank" rel="noreferrer">상담 정보 검색</a>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
